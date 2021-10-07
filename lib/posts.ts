@@ -6,9 +6,14 @@ import html from 'remark-html';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
+interface PostMetaData {
+  title: string;
+  date: string
+};
+
 const getSortedPostsData = () => {
   // Get file names under /posts
-  const fileNames = fs.readdirSync(postsDirectory);
+  const fileNames: string[] = fs.readdirSync(postsDirectory);
   const allPostsData = fileNames.map(fileName => {
     // Remove ".md" from file name to get id
     const id = fileName.replace(/\.md$/, '');
@@ -23,7 +28,7 @@ const getSortedPostsData = () => {
     // Combine the data with the id
     return {
       id,
-      ...matterResult.data
+      ...(matterResult.data as PostMetaData)
     };
   });
 
@@ -34,31 +39,17 @@ const getSortedPostsData = () => {
   });
 };
 
-const getAllPostIds = () => {
+const getAllPostIds = (): { params: { postId: string } }[] => {
   const fileNames = fs.readdirSync(postsDirectory);
-
-  // Returns an array that looks like this:
-  // [
-  //   {
-  //     params: {
-  //       id: 'ssg-ssr'
-  //     }
-  //   },
-  //   {
-  //     params: {
-  //       id: 'pre-rendering'
-  //     }
-  //   }
-  // ]
 
   return fileNames.map(fileName => (
     {
-      params: { booger: fileName.replace(/\.md$/, '') }
+      params: { postId: fileName.replace(/\.md$/, '') }
     }
   ));
 };
 
-const getPostData = async id => {
+const getPostData = async (id: string) => {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
 
@@ -76,9 +67,8 @@ const getPostData = async id => {
   return {
     id,
     contentHtml,
-    ...matterResult.data
-  }
-}
-
+    ...(matterResult.data as PostMetaData)
+  };
+};
 
 export { getSortedPostsData, getAllPostIds, getPostData };
