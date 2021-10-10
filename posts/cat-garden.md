@@ -61,6 +61,8 @@ tabs:
         liana: '🌿'
         climber: '🌿'
       columns: ['latin_name', 'common_name', 'family']
+      searchable_fields: [ 'latin_name', 'common_name', 'origin', 'family' ]
+      filterable_fields: [ 'family', 'type' ]
     data: 
       - latin_name: 'Nepeta cataria'
         common_name: 'catnip'
