@@ -1,0 +1,30 @@
+.tabSwitcher {
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+  border-bottom: 2px solid var(--clr-black);
+  padding: 0 0.5rem;
+
+  a {
+    padding: 0 0.5rem;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--clr-black);
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    border-bottom: none;
+    color: var(--clr-black);
+
+    &[aria-selected="true"] {
+      background-color: var(--clr-black);
+      color: var(--clr-white);
+    }
+  }
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
