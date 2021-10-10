@@ -8,7 +8,8 @@ const postsDirectory = path.join(process.cwd(), 'posts');
 
 interface PostMetaData {
   title: string;
-  date: string
+  date: string;
+  tabs?: any[];
 };
 
 const getSortedPostsData = () => {
@@ -58,7 +59,7 @@ const getPostData = async (id: string) => {
 
   // Use remark to convert markdown into HTML string
   const processedContent = await remark()
-    .use(html)
+    .use(html, { sanitize: false })
     .process(matterResult.content)
   ;
   const contentHtml = processedContent.toString();

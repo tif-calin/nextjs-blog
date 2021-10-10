@@ -1,17 +1,21 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import Date from '../../components/date';
+import FSQTable from '../../components/fsqTable';
 import Layout from '../../components/layout';
+import Tabs from '../../components/tabs';
 import { getAllPostIds, getPostData } from '../../lib/posts';
 import utilStyles from '../../styles/utils.module.css';
+import styles from './post.module.scss';
 
 interface Props {
   postData: {
     contentHtml: string;
     date: string;
     title: string;
+    tabs?: any[];
   };
-}
+};
 
 const Post = ({ postData }: Props) => {
   return (
@@ -20,13 +24,18 @@ const Post = ({ postData }: Props) => {
         <title>{postData.title}</title>
       </Head>
       
-      <article>
+      <article className={styles.post}>
         <h1 className={utilStyles.headingXl}>{postData.title}</h1>
         <div className={utilStyles.lightText}>
           <Date dateString={postData.date} />
         </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }}/>
       </article>
+
+      <Tabs tabNames={postData.tabs.map(tab => tab.title)}>
+        {postData.tabs.map(tab => <FSQTable key={tab.title} config={tab.config} data={tab.data}/>)}
+      </Tabs>
+
     </Layout>
   );
 };
