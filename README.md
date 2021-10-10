@@ -6,4 +6,5 @@ Hello, this is Culi's blog made with Next.js.
   - [ ] implement filtering
   - [ ] implement search
   - [ ] implement pagination
-- [ ] finish first post (cat garden)
+- [x] finish first post (cat garden)
+- [ ] figure out how to use custom React components in markdown with remark
