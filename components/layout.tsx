@@ -42,7 +42,7 @@ const Layout = ({ children, home }: Props) => {
               width={144}
               alt={name}
             />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
+            <h1 className={utilStyles.pageTitle}>{name}</h1>
           </>
         ) : (
           <>

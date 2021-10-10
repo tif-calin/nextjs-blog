@@ -6,6 +6,29 @@ html {
   --clr-conifer: #97f23d;
   --clr-peach: #f2ca80;
   --clr-azure: #0070f3;
+
+  --clr-white: #fefefe;
+  --clr-black: #222;
+  --clr-bluetiful: #1b75bc;
+  --clr-amber: #fcb316;
+
+  --clr-white-rgb: 254, 254, 254;
+  --clr-black-rgb: 34, 34, 34;
+  --clr-bluetiful-rgb: 27, 117, 188;
+  --clr-amber-rgb: 252, 179, 22;
+
+  --txt-size-sm: 1rem;
+  --txt-size: 1.1rem;
+  --txt-size-md: 1.2rem;
+  --txt-size-lg: 1.4rem;
+  --txt-size-xl: 1.6rem;
+  --txt-size-xxl: 2rem;
+
+  --txt-weight-light: 300;
+  --txt-weight: 400;
+  --txt-weight-medium: 500;
+  --txt-weight-semibold: 600;
+  --txt-weight-bold: 700;
 }
 
 html,
@@ -14,7 +37,15 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   line-height: 1.6;
-  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  accent-color: var(--clr-amber);
+  font-size: var(--txt-size);
+  font-weight: var(--txt-weight);
+  color: var(--clr-black);
+  background-color: var(--clr-white);
 }
 
 * {
@@ -22,15 +53,24 @@ body {
 }
 
 a {
-  color: var(--clr-azure);
+  color: var(--clr-bluetiful);
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
+  text-decoration-color: var(--clr-amber);
 }
 
 img {
   max-width: 100%;
   display: block;
+}
+
+hr {
+  width: 100%;
+}
+
+details > summary {
+  cursor: pointer;
 }
