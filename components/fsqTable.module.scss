@@ -1,18 +1,21 @@
 .fsqTable {
-  box-shadow: 0 6px 12px -2px rgb(50 50 93 / 25%), 0 3px 7px -3px rgb(0 0 0 / 30%);
-  gap: 0.5rem;
+  box-shadow: inset 0 6px 12px -2px rgb(50 50 93 / 25%), inset 0 3px 7px -3px rgb(0 0 0 / 30%);
+  gap: 0.75rem;
   padding: 1.5rem;
   border-bottom-left-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
-  background-color: var(--clr-black);
+  background-color: var(--clr-amber);
+  background: rgba(var(--clr-amber-rgb), 0.25);
+  border: 2px solid var(--clr-black);
+  border-top: none;
 
+  display: flex;
+  flex-direction: column;
   // display: grid;
   // grid-template-areas: 
   //   "b a"
   //   "b c"
   // ;
-  display: flex;
-  flex-direction: column;
 
   @media (max-width: 700px) {
     /* this changes the layout for smaller screens */
@@ -24,17 +27,22 @@
     font-size: var(--txt-size-sm);
     line-height: 1;
   }
+
+  & > * {
+    border: 2px solid var(--clr-black);
+  }
   
   fieldset {
-    box-shadow: inset 0 6px 12px -2px rgb(50 50 93 / 25%), inset 0 3px 7px -3px rgb(0 0 0 / 30%);
+    box-shadow: 0 6px 12px -2px rgb(50 50 93 / 25%), 0 3px 7px -3px rgb(0 0 0 / 30%);
     padding: 1rem;
     border-radius: 0.25rem;
     background: var(--clr-white);
 
     legend {
       padding: 0.25rem 0.25rem;
-      background: var(--clr-white); 
       border-radius: 0.25rem;
+      font-weight: var(--txt-weight-semibold);
+      border: 2px solid var(--clr-black);
       background-color: var(--clr-black);
       color: var(--clr-white);
     }
@@ -61,7 +69,7 @@
   }
 
   ul {
-    margin: -0.5rem -1rem 0;
+    margin: -0.5rem 0 0;
     display: grid;
     gap: 0.5rem 0;
   }

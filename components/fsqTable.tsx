@@ -64,7 +64,7 @@ const FSQTable = ({ config, data }: Props) => {
         onChange={e => setQueryField(e.target.value)}
       >
         {config?.searchable_fields.map(field => (
-          <option key={field} value={field}>{field}</option>
+          <option key={field} value={field}>{field.replace('_', ' ')}</option>
         ))}
       </select>
       <span>{items.length} items</span>
@@ -72,6 +72,7 @@ const FSQTable = ({ config, data }: Props) => {
 
     {/* OUTPUT FIELDSET */}
     <fieldset className={styles.output}>
+      <legend>results</legend>
       <ul
         style={{
           gridTemplateColumns: `repeat(${columns.length}, auto)`
@@ -90,7 +91,7 @@ const FSQTable = ({ config, data }: Props) => {
               else setReverse(false);
               setSortField(column);
             }}
-          >{column}</button>
+          >{column.replace('_', ' ')}</button>
         ))}
         {items.map((row, i) => 
           columns.map(column => {
@@ -98,7 +99,7 @@ const FSQTable = ({ config, data }: Props) => {
             return <span
               key={`${column}-${i}`}
               style={i % 2 ? {
-                'backgroundColor': 'rgba(var(--clr-amber-rgb), 0.25)'
+                'backgroundColor': 'rgba(var(--clr-black-rgb), 0.05)'
               } : {} }
             >
               {column === config.required_fields.title
@@ -117,7 +118,7 @@ const FSQTable = ({ config, data }: Props) => {
     </fieldset>
 
     {/* FILTERS FIELDSET */}
-    {false && config?.filterable_fields?.length && <fieldset className={styles.filter}>
+    {config?.filterable_fields?.length && <fieldset className={styles.filter}>
       <legend>filter</legend>
     </fieldset>}
   </form>;
