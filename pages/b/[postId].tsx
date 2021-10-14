@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import Date from '../../components/date';
-import FSQTable from '../../components/fsqTable';
+import Desk from '../../components/desk/desk';
 import Layout from '../../components/layout';
 import Tabs from '../../components/tabs';
 import { getAllPostIds, getPostData } from '../../lib/posts';
@@ -33,7 +33,7 @@ const Post = ({ postData }: Props) => {
       </article>
 
       <Tabs tabNames={postData.tabs.map(tab => tab.title)}>
-        {postData.tabs.map(tab => <FSQTable key={tab.title} config={tab.config} data={tab.data}/>)}
+        {postData.tabs.map(tab => <Desk key={tab.title} config={tab.config} data={tab.data}/>)}
       </Tabs>
 
     </Layout>
