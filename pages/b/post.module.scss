@@ -92,6 +92,15 @@
   }
 }
 
-.imageR {
-  float: right;
+.special {
+  padding: 0 0.125rem;
+  text-shadow: 0 0 16px rgba(var(--clr-amber-rgb), 0.25);
+  font-weight: 500;
+  cursor: default;
+
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    text-shadow: 0 0 4px rgba(var(--clr-amber-rgb), 0.5);
+  }
 }

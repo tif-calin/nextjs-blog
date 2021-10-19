@@ -44,6 +44,7 @@ const BlogImage = props => {
 
 const components = {
   image: BlogImage,
+  special: props => <span className={styles.special}>{props.children}</span>
 };
 
 const Post = ({ postData, contentMDX }: Props) => {
