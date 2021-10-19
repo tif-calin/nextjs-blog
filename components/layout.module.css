@@ -1,7 +1,10 @@
 .container {
   max-width: 48rem;
   padding: 0 1rem;
-  margin: 3rem auto 6rem;
+  margin: 3rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .header {
@@ -11,5 +14,5 @@
 }
 
 .backToHome {
-  margin: 3rem 0 0;
+  margin: 2rem 0 0;
 }
