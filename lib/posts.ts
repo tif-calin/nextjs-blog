@@ -15,9 +15,10 @@ interface PostMetaData {
 const getSortedPostsData = () => {
   // Get file names under /posts
   const fileNames: string[] = fs.readdirSync(postsDirectory);
+
   const allPostsData = fileNames.map(fileName => {
     // Remove ".md" from file name to get id
-    const id = fileName.replace(/\.md$/, '');
+    const id = fileName.replace(/\.mdx?$/, '');
 
     // Read markdown file as string
     const fullPath = path.join(postsDirectory, fileName);
@@ -30,7 +31,7 @@ const getSortedPostsData = () => {
     return {
       id,
       ...(matterResult.data as PostMetaData)
-    };
+    }; 
   });
 
   // Sort posts by date
@@ -45,13 +46,13 @@ const getAllPostIds = (): { params: { postId: string } }[] => {
 
   return fileNames.map(fileName => (
     {
-      params: { postId: fileName.replace(/\.md$/, '') }
+      params: { postId: fileName.replace(/\.mdx?$/, '') }
     }
   ));
 };
 
 const getPostData = async (id: string) => {
-  const fullPath = path.join(postsDirectory, `${id}.md`);
+  const fullPath = path.join(postsDirectory, `${id}.mdx`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
 
   // Use gray-matter to parse the post metadata section
@@ -68,6 +69,7 @@ const getPostData = async (id: string) => {
   return {
     id,
     contentHtml,
+    content: matterResult.content,
     ...(matterResult.data as PostMetaData)
   };
 };
