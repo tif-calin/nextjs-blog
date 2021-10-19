@@ -1,5 +1,9 @@
 Hello, this is Culi's blog made with Next.js.
 
+# credits
+ - Salesforce's Lightning Design System accessibility guide to [building a tabs component](https://www.lightningdesignsystem.com/components/tabs/#Markup)
+ - [Inclusive Design Principles](https://inclusivedesignprinciples.org/)
+
 # todo
 - desk component
   - [ ] separate desk component items
