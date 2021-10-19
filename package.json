@@ -1,5 +1,5 @@
 {
-  "name": "learn-starter",
+  "name": "culi-next",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,6 +12,8 @@
     "date-fns": "^2.24.0",
     "gray-matter": "^4.0.3",
     "next": "^11.0.0",
+    "next-mdx-remote": "^3.0.6",
+    "next-transpile-modules": "^8.0.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "remark": "^13.0.0",
