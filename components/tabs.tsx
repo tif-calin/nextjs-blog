@@ -3,7 +3,7 @@ import styles from './tabs.module.scss';
 
 interface Props {
   children: React.ReactNode[];
-  tabNames: string[];
+  tabNames: string[] | string;
 };
 
 const Tabs = ({ children, tabNames }: Props) => {
@@ -11,7 +11,7 @@ const Tabs = ({ children, tabNames }: Props) => {
   
   return <div>
     <ul role="tablist" className={styles.tabSwitcher}>
-      {tabNames.map((tabName, i) => <li key={tabName} role="presentation"> 
+      {(Array.isArray(tabNames) ? tabNames : tabNames.split(' ')).map((tabName, i) => <li key={tabName} role="presentation"> 
         <a href="#" role="tab" aria-selected={activeTab === i} onClick={
           e => {
             e.preventDefault();
